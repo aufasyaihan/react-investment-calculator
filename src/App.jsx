@@ -1,4 +1,5 @@
 import Input from "./components/Input";
+import Results from "./components/Results";
 
 function App() {
   
@@ -6,6 +7,7 @@ function App() {
   return (
     <>
       <Input/>
+      <Results />
     </>
   );
 }
