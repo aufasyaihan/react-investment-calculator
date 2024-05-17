@@ -16,7 +16,7 @@ function App() {
     setInput((prevInput) => {
       return {
         ...prevInput,
-        [inputIdentifier]: +newValue, // parse to number, bcs it's a string
+        [inputIdentifier]: +newValue, // + means parse to number, bcs it's a string
       };
     });
   }
