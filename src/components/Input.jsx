@@ -1,4 +1,4 @@
-export default function input({ input, handleInput }) {
+export default function input({ input, handleInput, valid }) {
   return (
     <section id="user-input">
       <div className="input-group">
@@ -8,7 +8,9 @@ export default function input({ input, handleInput }) {
             type="number"
             required
             value={input.initialInvestment}
-            onChange={(event) => handleInput('initialInvestment', event.target.value)}
+            onChange={(event) =>
+              handleInput("initialInvestment", event.target.value)
+            }
             name="initialInvestment"
           />
         </p>
@@ -18,9 +20,11 @@ export default function input({ input, handleInput }) {
             type="number"
             required
             value={input.annualInvestment}
-            onChange={(event) => handleInput('annualInvestment', event.target.value)}
+            onChange={(event) =>
+              handleInput("annualInvestment", event.target.value)
+            }
             name="annualInvestment"
-            />
+          />
         </p>
       </div>
       <div className="input-group">
@@ -30,9 +34,11 @@ export default function input({ input, handleInput }) {
             type="number"
             required
             value={input.expectedReturn}
-            onChange={(event) => handleInput('expectedReturn', event.target.value)}
+            onChange={(event) =>
+              handleInput("expectedReturn", event.target.value)
+            }
             name="expectedReturn"
-            />
+          />
         </p>
         <p>
           <label htmlFor="Duration">Duration</label>
@@ -40,9 +46,12 @@ export default function input({ input, handleInput }) {
             type="number"
             required
             value={input.duration}
-            onChange={(event) => handleInput('duration', event.target.value)}
+            onChange={(event) => handleInput("duration", event.target.value)}
             name="duration"
           />
+          {!valid && (
+            <p style={{ color: "red" , fontSize : 12}}>Duration must be greater than 0</p>
+          )}
         </p>
       </div>
     </section>

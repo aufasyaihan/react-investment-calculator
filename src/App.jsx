@@ -10,6 +10,8 @@ function App() {
     duration: 10,
   });
 
+  const inputIsValid = input.duration > 0;
+
   function handleInput(inputIdentifier, newValue) {
     setInput((prevInput) => {
       return {
@@ -21,8 +23,8 @@ function App() {
 
   return (
     <>
-      <Input input={input} handleInput={handleInput} />
-      <Results input={input} />
+      <Input input={input} handleInput={handleInput} valid={inputIsValid} />
+      {inputIsValid && <Results input={input} />}
     </>
   );
 }
