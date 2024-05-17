@@ -1,4 +1,4 @@
-export default function input({ input, handleInput, valid }) {
+export default function input({ input, handleInput }) {
   return (
     <section id="user-input">
       <div className="input-group">
@@ -49,9 +49,7 @@ export default function input({ input, handleInput, valid }) {
             onChange={(event) => handleInput("duration", event.target.value)}
             name="duration"
           />
-          {!valid && (
-            <p style={{ color: "red" , fontSize : 12}}>Duration must be greater than 0</p>
-          )}
+          
         </p>
       </div>
     </section>
