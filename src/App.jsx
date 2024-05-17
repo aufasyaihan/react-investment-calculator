@@ -14,7 +14,7 @@ function App() {
     setInput((prevInput) => {
       return {
         ...prevInput,
-        [inputIdentifier]: newValue,
+        [inputIdentifier]: +newValue, // parse to number, bcs it's a string
       };
     });
   }
