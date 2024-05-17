@@ -4,18 +4,17 @@ import { useState } from "react";
 
 function App() {
   const [input, setInput] = useState({
-    initialInvestment: 0,
-    annualInvestment: 0,
-    expectedReturn: 0,
-    duration: 0,
+    initialInvestment: 10000,
+    annualInvestment: 1200,
+    expectedReturn: 6,
+    duration: 10,
   });
 
-  function handleInput(event) {
-    const { name, value } = event.target;
+  function handleInput(inputIdentifier, newValue) {
     setInput((prevInput) => {
       return {
         ...prevInput,
-        [name]: value,
+        [inputIdentifier]: newValue,
       };
     });
   }
@@ -23,7 +22,7 @@ function App() {
   return (
     <>
       <Input input={input} handleInput={handleInput} />
-      <Results />
+      <Results input={input} />
     </>
   );
 }

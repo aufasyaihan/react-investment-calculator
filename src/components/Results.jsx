@@ -1,4 +1,14 @@
-export default function Results() {
+import { calculateInvestmentResults, formatter } from "../util/investment";
+
+export default function Results({ input }) {
+  const results = calculateInvestmentResults({
+    initialInvestment: parseInt(input.initialInvestment),
+    annualInvestment: parseInt(input.annualInvestment),
+    expectedReturn: parseInt(input.expectedReturn),
+    duration: parseInt(input.duration),
+  });
+
+  console.log(input);
   return (
     <section>
       <table id="result">
@@ -12,13 +22,22 @@ export default function Results() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>sadasdasd</td>
-            <td>sadasdasd</td>
-            <td>sadasdasd</td>
-            <td>sadasdasd</td>
-          </tr>
+          {results.map((item, index) => {
+            return (
+              <tr key={index}>
+                <td>{item.year}</td>
+                <td>{formatter.format(item.valueEndOfYear + item.interest)}</td>
+                <td>{formatter.format(item.interest)}</td>
+                <td>{formatter.format(item.interest)}</td>
+                <td>{formatter.format(item.valueEndOfYear)}</td>
+              </tr>
+            );
+          })}
+          {/* <td>{results.year}</td>
+            <td>{results.interest}</td>
+            <td>{results.valueEndOfYear}</td>
+            <td>{results.annualInvestment}</td>
+            <td>sadasdasd</td> */}
         </tbody>
       </table>
     </section>

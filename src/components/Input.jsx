@@ -8,7 +8,7 @@ export default function input({ input, handleInput }) {
             type="number"
             required
             value={input.initialInvestment}
-            onChange={handleInput}
+            onChange={(event) => handleInput('initialInvestment', event.target.value)}
             name="initialInvestment"
           />
         </p>
@@ -18,9 +18,9 @@ export default function input({ input, handleInput }) {
             type="number"
             required
             value={input.annualInvestment}
-            onChange={handleInput}
+            onChange={(event) => handleInput('annualInvestment', event.target.value)}
             name="annualInvestment"
-          />
+            />
         </p>
       </div>
       <div className="input-group">
@@ -30,9 +30,9 @@ export default function input({ input, handleInput }) {
             type="number"
             required
             value={input.expectedReturn}
-            onChange={handleInput}
+            onChange={(event) => handleInput('expectedReturn', event.target.value)}
             name="expectedReturn"
-          />
+            />
         </p>
         <p>
           <label htmlFor="Duration">Duration</label>
@@ -40,7 +40,7 @@ export default function input({ input, handleInput }) {
             type="number"
             required
             value={input.duration}
-            onChange={handleInput}
+            onChange={(event) => handleInput('duration', event.target.value)}
             name="duration"
           />
         </p>
