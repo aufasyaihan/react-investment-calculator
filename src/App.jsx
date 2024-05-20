@@ -24,12 +24,13 @@ function App() {
   return (
     <>
       <Input input={input} handleInput={handleInput} />
-      {!inputIsValid && (
+      {!inputIsValid ? (
         <p className="center" style={{ color: "red" }}>
           Duration must be greater than 0
         </p>
+      ) : (
+        inputIsValid && <Results input={input} />
       )}
-      {inputIsValid && <Results input={input} />}
     </>
   );
 }
